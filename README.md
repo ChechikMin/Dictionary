@@ -6,7 +6,7 @@ class Dictionary
 Приразработке допускается использовать STL. Кроме этого, внутренняя реализацияничем не ограничена.
 
 template<classKey, class Value>
-classdictionary
+class dictionary
 {
 public:
 virtual ~dictionary() = default;
@@ -17,7 +17,7 @@ virtual bool is_set(const Key& key) const = 0;
 };
 
 template<classKey>
-classnot_found_exception : public std::exception
+class not_found_exception : public std::exception
 {
 public:
 virtual const Key& get_key() const noexcept = 0;
