@@ -1,19 +1,25 @@
 ﻿
 #include <iostream>
+#include <any>
 #include "Dictionary.h"
 
 
 int main()
 {
    int a = 5;
-   Dictionary<int, int> dict{std::move(a),5};
+   uint16_t a1 = 1;
+
+   Dictionary<uint16_t, int> dict2{ a1,a };
    
    try {
-	   dict.get(5);
+	   dict2.get(5);
    }
-   catch (std::exception ex)//как прокинуть любой эксепшн вне зависимости от типа
+   catch (CommonException<uint16_t>  &ex)
    {
-	   std::cout << ex.what() << "\n";
+	   std::cout << ex.what() <<":"<<ex.get_key() << "\n";
+   }
+   catch (std::exception &ex) {
+	   std::cout << ex.what() <<"\n";
    }
    std::cout << "Hello World!\n";
 }

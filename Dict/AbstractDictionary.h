@@ -4,6 +4,7 @@
 template<class Key, class Value>
 class AbstractDictionary abstract
 {
+
 public:
 
 	virtual const Value& get(const Key& key) const = 0;
